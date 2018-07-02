@@ -1,0 +1,20 @@
+import sqlite3
+mylibrary=sqlite3.connect('mylibrary.db')
+print ("DATABASE CREATED")
+mylibrary.execute('''CREATE TABLE BOOKS
+(ID INT PRIMARY KEY NOT NULL,
+NAME TEXT NOT NULL,
+AUTHOR TEXT NOT NULL,
+PRICE REAL NOT NULL);''')
+print ("TABLE CREATED")
+mylibrary.execute('''INSERT INTO BOOKS(ID,NAME,AUTHOR,PRICE)
+VALUES(1,'HARRY POTTER','JK ROWLING',300.0);''')
+mylibrary.execute('''INSERT INTO BOOKS(ID,NAME,AUTHOR,PRICE)
+VALUES(2,'THE ALCHEMIST','PAULO COHELO',350.0);''')
+mylibrary.execute('''INSERT INTO BOOKS(ID,NAME,AUTHOR,PRICE)
+VALUES(3,'A TALE OF TWO CITIES','CHARLES DICKENS',150.0);''')
+mylibrary.execute('''INSERT INTO BOOKS(ID,NAME,AUTHOR,PRICE)
+VALUES(4,'THE DA VINCI CODE','DAN BROWN',250.0);''')
+mylibrary.commit()
+print ("RECORDS CREATEDS")
+mylibrary.close()
